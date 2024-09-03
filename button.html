@@ -70,13 +70,17 @@
       </div>
       <button class="submit">submit</button>
     </section>
+    <div class="text">hello</div>
   </body>
   <script>
     const btns = document.querySelectorAll(".btn");
     const submit = document.querySelector(".submit");
+    const text = document.querySelector(".text");
 
     btns.forEach(function (btn) {
       btn.addEventListener("click", function (e) {
+        let textContent = "null";
+        textContent = btn.textContent;
         btns.forEach(function (button) {
           button.classList.remove("selected");
         });
@@ -85,6 +89,7 @@
         if (!btn.classList.contains("selected")) {
           btn.classList.add("selected");
           submit.classList.add("selected");
+          text.innerHTML = `You rated use ${textContent}`;
         }
       });
     });
