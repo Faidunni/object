@@ -121,16 +121,88 @@ countTotal(67, 89, 54, 100);
 
 // Array-DOM Element
 const p = document.querySelectorAll("p");
-const result = document.getElementById("results");
+const results = document.getElementById("results");
 const seconds = document.getElementById("second");
 
 let newText = Array.from(p);
 newText = newText.map((item) => `<span>${item.textContent}</span>`).join(" ");
 
-result.innerHTML = newText;
+results.innerHTML = newText;
 
 // shorter method
 const texts = Array.from(document.querySelectorAll("p"), (item) => {
   console.log(item);
   return `<span>${item.textContent}</span>`;
+}).join(" ");
+
+seconds.innerHTML = text;
+
+// FIND
+const population = [
+  { id: 1, name: "john" },
+  { id: 2, name: "peter" },
+  { id: 3, name: "anna" },
+];
+
+const grades = ["A", "B", "A", "B", "C"];
+const goodGrades = ["A", "B", "A", "B"];
+// const anna = population.filter((population) => population.name === "anna");
+// console.log(anna);
+// console.log(anna[0].name);
+// console.log(anna[0].id);
+
+const anna = population.find((person) => person.name === "anna");
+console.log(anna.name);
+
+const who = population.findIndex((item) => item.id === 3);
+console.log(who);
+const newPeople = population.slice(0, person);
+console.log(newPeople);
+
+// every
+const allGoodGerades = grades.every((grade) => grade !== "C");
+console.log(allGoodGerades);
+
+const allgoodGrades = goodGrades.every((grade) => grade !== "C");
+console.log(allgoodGrades);
+const oneBadGrade = grades.some((grade) => grade === "C");
+console.log(oneBadGrade);
+
+// for-in loop
+const whom = {
+  name: "john",
+  age: 25,
+  status: "student",
+};
+
+for (const propertyName in whom) {
+  console.log(`${propertyName} : ${whom[propertyName]}`);
+}
+
+// converting object into array
+const whose = {
+  name: "john",
+  age: 25,
+  status: "student",
+};
+
+const keys = Object.keys(whose);
+console.log(keys);
+
+const values = Object.values(whose);
+console.log(values);
+
+const resulting = Object.entries(whose);
+// console.log(resulting);
+
+// map method
+const newResult = resulting.map((item) => {
+  const [firsti, secondi] = item;
+  // console.log(firsti, secondi);
+  return secondi;
 });
+
+// console.log(newResult);
+for (const [firsti, secondi] of resulting) {
+  console.log(firsti, secondi);
+}
